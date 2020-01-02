@@ -1,8 +1,8 @@
-package com.hongjhhh.common.protocol;
+package com.hongjhhh.server.common.protocol;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * <pre>
@@ -46,19 +46,15 @@ import lombok.ToString;
  * </pre>
  *
  * @author hongjunhao
- * @apiNote RequestHead
+ * @apiNote Message
  * @since 2019/12/31
  */
-
 @Data
-@Builder
-@ToString(callSuper = true)
-public class RequestHeader extends Header {
+public class Message {
 
-    private String requestId;
+    private final Header header;
 
-    private String authentication;
+    private final Body body;
 
-    private String method;
 
 }

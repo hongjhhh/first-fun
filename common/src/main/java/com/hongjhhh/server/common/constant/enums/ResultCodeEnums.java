@@ -1,7 +1,6 @@
-package com.hongjhhh.common.protocol;
+package com.hongjhhh.server.common.constant.enums;
 
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+import lombok.Getter;
 
 /**
  * <pre>
@@ -45,14 +44,22 @@ import lombok.extern.slf4j.Slf4j;
  * </pre>
  *
  * @author hongjunhao
- * @apiNote Message
- * @since 2019/12/31
+ * @apiNote ResultCodeEnums
+ * @since 2020/1/2
  */
-@Slf4j
-@Data
-public class Message {
+public enum  ResultCodeEnums {
 
-    private final Header header;
+    //OK
+    OK(0,"OK")
+            ;
+    ResultCodeEnums(int code, String description) {
+        this.code = code;
+        this.description = description;
+    }
 
-    private final Body body;
+    @Getter
+    private final int code;
+
+    @Getter
+    private final String description;
 }

@@ -1,7 +1,9 @@
-package com.hongjhhh.common.protocol;
+package com.hongjhhh.server.common.protocol;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * <pre>
@@ -45,12 +47,20 @@ import lombok.extern.slf4j.Slf4j;
  * </pre>
  *
  * @author hongjunhao
- * @apiNote Body
+ * @apiNote ResponseHead
  * @since 2019/12/31
  */
-@Slf4j
-@Data
-public class Body<T> {
 
-    T Object;
+@EqualsAndHashCode(callSuper = true)
+@Data
+@Builder
+@ToString(callSuper = true)
+public class ResponseHeader extends Header{
+
+    private String responseId;
+
+    private int code;
+
+    private String message;
+
 }

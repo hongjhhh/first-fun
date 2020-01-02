@@ -1,8 +1,6 @@
-package com.hongjhhh.common.protocol;
+package com.hongjhhh.server.common.constant.enums;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.Getter;
 
 /**
  * <pre>
@@ -46,15 +44,28 @@ import lombok.ToString;
  * </pre>
  *
  * @author hongjunhao
- * @apiNote ResponseHead
+ * @apiNote CommuicationType
  * @since 2019/12/31
  */
+public enum CommuicationTypeEnums {
+    //默认
+    DEFAULT((byte)0,"default")
+    ,HEART_REQUEST((byte)1,"heart_request")
+    ,HEART_RESPONSE((byte)2,"heart_response")
+    ,BUSINESS_REQUEST((byte)3,"business_request")
+    ,BUSINESS_RESPONSE((byte)4,"business_response")
 
-@Data
-@Builder
-@ToString(callSuper = true)
-public class ResponseHeader {
+    ;
 
-    private String responseId;
 
+    CommuicationTypeEnums(byte code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+
+    @Getter
+    private final byte code;
+
+    @Getter
+    private final String description;
 }

@@ -32,8 +32,10 @@
             <artifactId>jboss-marshalling-river</artifactId>
         </dependency>
 
-
-
+        <dependency>
+            <artifactId>first-fun</artifactId>
+            <groupId>com.hongjunhhh</groupId>
+        </dependency>
 
 
     </dependencies>

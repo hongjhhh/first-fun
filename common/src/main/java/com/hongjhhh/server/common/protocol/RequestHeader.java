@@ -1,7 +1,9 @@
-package com.hongjhhh.common.constant.enums;
+package com.hongjhhh.server.common.protocol;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * <pre>
@@ -45,28 +47,23 @@ import lombok.Setter;
  * </pre>
  *
  * @author hongjunhao
- * @apiNote CommuicationType
+ * @apiNote RequestHead
  * @since 2019/12/31
  */
-public enum CommuicationType {
-    //默认
-    DEFAULT((byte)0,"default")
-    ,HEART_REQUEST((byte)1,"heart_request")
-    ,HEART_RESPONSE((byte)2,"heart_response")
-    ,BUSINESS_REQUEST((byte)3,"business_request")
-    ,BUSINESS_RESPONSE((byte)4,"business_response")
 
-    ;
+@EqualsAndHashCode(callSuper = true)
+@Data
+@Builder
+@ToString(callSuper = true)
+public class RequestHeader extends Header {
+
+    private String requestId;
+
+    private String authentication;
+
+    private String method;
 
 
-    CommuicationType(byte code, String description) {
-        this.code = code;
-        this.description = description;
-    }
 
-    @Getter
-    private final byte code;
 
-    @Getter
-    private final String description;
 }
